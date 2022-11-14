@@ -16,7 +16,7 @@
     Builder for native platform
 """
 
-from SCons.Script import AlwaysBuild, Default, DefaultEnvironment
+from SCons.Script import COMMAND_LINE_TARGETS, AlwaysBuild, Default, DefaultEnvironment
 
 env = DefaultEnvironment()
 
@@ -33,6 +33,10 @@ backup_cxxflags = env.get("CXXFLAGS", [])
 env.Tool("gcc")
 env.Tool("g++")
 
+# Reload "compilation_db" tool
+if "compiledb" in COMMAND_LINE_TARGETS:
+    env.Tool("compilation_db")
+
 # Restore C/C++ build flags as they were overridden by env.Tool
 env.Append(CFLAGS=backup_cflags, CXXFLAGS=backup_cxxflags)
 
@@ -41,6 +45,16 @@ env.Append(CFLAGS=backup_cflags, CXXFLAGS=backup_cxxflags)
 #
 
 target_bin = env.BuildProgram()
+
+#
+# Target: Execute binary
+#
+
+exec_action = env.VerboseAction(
+    "$SOURCE $PROGRAM_ARGS", "Executing $SOURCE")
+
+AlwaysBuild(env.Alias("exec", target_bin, exec_action))
+AlwaysBuild(env.Alias("upload", target_bin, exec_action))
 
 #
 # Target: Print binary size

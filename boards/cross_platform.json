@@ -10,6 +10,6 @@
   },
   "frameworks": ["arduino"],
   "name": "Portduino",
-  "url": "https://github.com/geeksville/framework-portduino",
+  "url": "https://github.com/caveman99/framework-portduino",
   "vendor": "Geeksville Industries, LLC"
 }

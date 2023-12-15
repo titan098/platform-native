@@ -15,7 +15,7 @@
   "packages": {
     "framework-portduino": {
       "type": "framework",
-      "version": "https://github.com/meshtastic/framework-portduino.git#093529b84e2f715bfe0ed188beae823bf5ac5a87",
+      "version": "https://github.com/meshtastic/framework-portduino.git#aea44c8cc7ea6aebd0e23f6b2a5dc4d3471d536a",
       "optional": true
     }
   },

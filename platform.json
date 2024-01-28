@@ -15,7 +15,7 @@
   "packages": {
     "framework-portduino": {
       "type": "framework",
-      "version": "https://github.com/titan098/framework-portduino.git#7d915917c24051ae0d1ef5d0063e384eebd1909e",
+      "version": "https://github.com/titan098/framework-portduino.git#f8edfcf4a5dafd0825a474e1e4eb0bb4e2324768",
       "optional": true
     }
   },
